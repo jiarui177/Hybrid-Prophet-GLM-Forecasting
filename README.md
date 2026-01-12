@@ -18,18 +18,34 @@ The framework consists of three progressively expressive modules:
    - **Residual Correction:** The TV-GLM learns structured corrections from Prophet's residuals to handle event-driven structural breaks.
 
 ## 📊 Results Summary
-| Model | MAE | RMSE |
+The performance was evaluated on a held-out 2-week test window for two participants, **Rae** and **Sophia**. The Hybrid model consistently achieved the lowest error metrics by combining smooth seasonal trends with sharp, event-driven corrections.
+
+### **Participant 1: Rae**
+| Model | MAE (min) | RMSE (min) |
 | :--- | :--- | :--- |
-| Seasonal Naive | 134.72 | 163.78 |
-| SARIMA | 123.36 | 162.72 |
-| Prophet (Standard) | 120.35 | 155.67 |
-| **Hybrid Prophet-GLM** | **110.12** | **145.34** |
-*(Values represent the average across test participants)*
+| Seasonal Naive | 330.07 | 367.96 |
+| Prophet (Standard) | 197.83 | 247.37 |
+| SARIMA | 262.52 | 320.40 |
+| Augmented Prophet | 175.51 | 202.86 |
+| Weighted TV-GLM | 138.77 | 179.68 |
+| **Hybrid Prophet-GLM** | **109.57** | **143.33** |
+
+### **Participant 2: Sophia**
+| Model | MAE (min) | RMSE (min) |
+| :--- | :--- | :--- |
+| Seasonal Naive | 414.00 | 467.24 |
+| Prophet (Standard) | 271.96 | 309.32 |
+| SARIMA | 323.08 | 389.65 |
+| Augmented Prophet | 147.50 | 175.04 |
+| Weighted TV-GLM | 92.62 | 141.39 |
+| **Hybrid Prophet-GLM** | **87.49** | **128.62** |
+
+*Note: Rae's mean daily usage was 678 minutes, and Sophia's was 710 minutes. An MAE of ~100 minutes represents a modest ~15% relative error in personal behavioral forecasting.*
 
 ## 📂 Project Structure
-* `notebooks/`: Exploratory Data Analysis (EDA) and model experimentation.
-* `src/`: Implementation of the TV-GLM solver and Hybrid framework.
-* `report/`: Full technical report (CS680 Final Report).
+* `data/`: Contains the screen-time datasets for participants (Rae & Sophia).
+* `codes/`: Modular Python implementation of the Hybrid Prophet-GLM framework.
+* `CS680_Final_Report.pdf`: The full technical report detailing the mathematical derivation and experimental results.
 
 ## 💡 Public Sector & Business Impact
 This methodology can be directly applied to **Public Sector** challenges such as:
